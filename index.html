@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Personal portfolio website: about, skills, education, projects and contact.">
+<meta name="author" content="Your Name">
+<meta name="theme-color" content="#0d0a1a">
+<meta property="og:title" content="My Portfolio">
+<meta property="og:description" content="Personal portfolio website">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<title>My Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-d="1" data-t="dark">
+<a class="skip" href="#main">Skip to content</a>
+<noscript>This portfolio needs JavaScript to show its content.</noscript>
+<div id="door" role="dialog" aria-label="Welcome door">
+  <div class="dp l"><span class="hd"></span></div>
+  <div class="dp r"><span class="hd"></span></div>
+  <div id="ac"><span></span></div>
+  <div class="dm"><p id="spt"></p><span id="spe"></span></div>
+</div>
+<canvas id="fx"></canvas><div id="pg"></div>
+<header>
+<nav aria-label="Main menu">
+  <span class="brand" data-f="name"></span>
+  <div class="links"><a href="#home">Home</a><a href="#about">About Me</a><a href="#news">News</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#certs">Certificates</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  <label class="sr"><span aria-hidden="true">🔍</span><input id="sq" type="search" placeholder="Search…" aria-label="Search sections"></label>
+  <button class="ic" id="pl" title="Colours" aria-label="Choose colour theme" aria-expanded="false">🎨</button>
+  <button class="ic" id="lv" aria-label="Love">♡</button>
+  <button class="ic" id="mu" title="Music" aria-label="Music on or off">🔇</button>
+  <button class="ic" id="tg" title="Dark / Light" aria-label="Toggle dark and light mode">☀</button>
+  <div class="pal" id="pal" role="group" aria-label="Colour themes"></div>
+</nav>
+</header>
+<main id="main" tabindex="-1">
+<section id="home" data-bg="hero">
+  <div>
+    <p class="hi">Hello! I’m</p>
+    <h1 data-f="name"></h1>
+    <p class="role" id="role"></p>
+    <p class="mut"><span data-f="dept"></span> · <span data-f="uni"></span></p>
+    <div class="cta"><a class="btn vp" href="#projects">See my work <span>→</span></a><button class="vc">View Resume</button><a class="btn dl" href="resume.pdf" download>Download Resume</a></div>
+  </div>
+  <figure class="rg"><svg class="rt" viewBox="0 0 300 300" aria-hidden="true"><path id="rp" d="M150 150m-125 0a125 125 0 1 1 250 0a125 125 0 1 1-250 0" fill="none"/><text font-size="19" font-weight="700" letter-spacing="5" fill="currentColor"><textPath href="#rp">STUDENT ✦ DEVELOPER ✦ PROBLEM SOLVER ✦ </textPath></text></svg>
+  <svg class="av" viewBox="0 0 200 210" role="img" aria-label="Cartoon avatar">
+    <path d="M25 210Q35 152 100 152Q165 152 175 210Z" fill="var(--a)"/>
+    <circle cx="100" cy="98" r="58" fill="#f5d6c3"/>
+    <path d="M40 92C36 28 164 24 160 92C142 62 70 58 40 92Z" fill="#241b3a"/>
+    <g class="eyes"><circle cx="78" cy="102" r="9" fill="#fff"/><circle cx="122" cy="102" r="9" fill="#fff"/><g id="pp"><circle cx="78" cy="102" r="5" fill="#241b3a"/><circle cx="122" cy="102" r="5" fill="#241b3a"/></g></g>
+    <circle cx="64" cy="120" r="8" fill="#ff7ac6" opacity=".45"/><circle cx="136" cy="120" r="8" fill="#ff7ac6" opacity=".45"/>
+    <path d="M82 124Q100 142 118 124" stroke="#241b3a" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </svg></figure>
+</section>
+<section id="about" data-b="ABOUT" data-bg="b2">
+  <h2>About Me</h2>
+  <article class="card"><h3 data-f="name"></h3><p class="mut" data-f="about"></p></article>
+  <div class="stats" id="stats">
+    <div class="card stat"><b data-s="skills">0</b><span class="mut">Skills</span></div>
+    <div class="card stat"><b data-s="repos">0</b><span class="mut">Repositories</span></div>
+    <div class="card stat"><b data-s="contributions">0</b><span class="mut">Contributions</span></div>
+    <div class="card stat"><b data-s="certs">0</b><span class="mut">Certificates</span></div>
+  </div>
+  <article class="card"><h3>Interests &amp; Languages</h3><div class="tags" id="it"></div><div class="tags" id="lg"></div></article>
+</section>
+<section id="news" data-b="NEWS" data-bg="b8">
+  <h2>News</h2>
+  <p class="mut">Recent achievements and completed work.</p>
+  <div class="nf" id="nf" role="group" aria-label="Filter news"></div>
+  <div id="nw" aria-live="polite"></div>
+</section>
+<section id="skills" data-b="SKILLS" data-bg="inv b3">
+  <h2>Skills</h2>
+  <div class="card sg" id="sg"></div>
+  <h3 class="sh">Technology Ecosystem</h3>
+  <div id="tt"></div>
+  <h3 class="sh">GitHub Contributions <span class="mut" id="gt"></span></h3>
+  <div class="card"><div class="gh" id="gh"></div></div>
+</section>
+<section id="education" data-b="EDUCATION" data-bg="b4">
+  <h2>Education</h2>
+  <div class="tl" id="ed"></div>
+</section>
+<section id="certs" data-b="CERTIFICATES" data-bg="inv b5">
+  <h2>Certificates</h2>
+  <div class="grid" id="cg"></div>
+</section>
+<section id="projects" data-b="PROJECTS" data-bg="b6">
+  <h2>Projects</h2>
+  <div class="grid" id="pj"></div>
+</section>
+<section id="contact" data-b="CONTACT" data-bg="inv b7">
+  <h2>Contact</h2>
+  <div class="two">
+    <address class="card"><div class="ct" id="lk"></div><div class="ct" style="margin-top:14px"><button class="vc">📄 View Resume</button><a class="btn dl" href="resume.pdf" download>⬇ Download Resume</a></div></address>
+    <div class="card">
+      <h3>Send an email</h3>
+      <form id="mf" novalidate>
+        <input id="fn" placeholder="First name (required)" aria-label="First name">
+        <input id="em" type="email" placeholder="Email (required)" aria-label="Email">
+        <textarea id="ms" rows="3" placeholder="Message (required)" aria-label="Message"></textarea>
+        <button type="submit">Submit</button>
+        <p id="st" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer>© <time datetime="2026">2026</time> <span data-f="name"></span> · <span data-f="uni"></span></footer>
+
+<div id="ar"><button class="ic" id="up" aria-label="Previous section">↑</button><button class="ic" id="dn" aria-label="Next section">↓</button></div>
+<aside id="chat" aria-label="Chat assistant">
+  <div id="cp"><div id="cl" role="log" aria-live="polite"></div>
+    <div class="qs"><button>Skills?</button><button>Education?</button><button>Projects?</button><button>Contact?</button></div>
+    <form id="cf"><input id="ci" placeholder="Ask about me…" aria-label="Chat message"><button class="ic">➤</button></form>
+  </div>
+  <button class="ic" id="cb" aria-label="Open chat">💬</button>
+</aside>
+<dialog id="dlg"><h3 id="dt"></h3><div id="dc"></div><div class="ct"><a class="btn" id="dd" href="resume.pdf" download>Download Resume</a><button id="cx">Close</button></div></dialog>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
