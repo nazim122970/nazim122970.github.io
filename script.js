@@ -97,10 +97,17 @@ secs.forEach(s=>io.observe(s));
 addEventListener('scroll',()=>{$('#pg').style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%'});
 $('#up').onclick=()=>secs[Math.max(cur-1,0)].scrollIntoView();
 $('#dn').onclick=()=>secs[Math.min(cur+1,secs.length-1)].scrollIntoView();
-$('#mf').onsubmit=e=>{e.preventDefault();const st=$('#st');
- if(!$('#fn').value.trim()||!$('#ms').value.trim()){st.textContent='Please fill in your name and message.';return}
- if(!/^\S+@\S+\.\S+$/.test($('#em').value)){st.textContent='Please enter a valid email address.';return}
- st.textContent='Thanks! Your message is ready to send (demo).';e.target.reset()};
+$('#mf').onsubmit=e=>{e.preventDefault();const st=$('#st'),f=e.target,nm=$('#fn').value.trim(),em=$('#em').value.trim(),ms=$('#ms').value.trim();
+ if(!nm||!ms){st.textContent='Please fill in your name and message.';return}
+ if(!/^\S+@\S+\.\S+$/.test(em)){st.textContent='Please enter a valid email address.';return}
+ if(!D.formKey){
+  location.href='mailto:'+D.email+'?subject='+encodeURIComponent('Portfolio message from '+nm)+'&body='+encodeURIComponent(ms+'\n\nFrom: '+nm+' ('+em+')');
+  st.textContent='Opening your email app… press Send there to deliver the message.';return}
+ const btn=f.querySelector('button[type=submit]');btn.disabled=true;st.textContent='Sending…';
+ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+  body:JSON.stringify({access_key:D.formKey,name:nm,email:em,message:ms,subject:'New message from your portfolio website',from_name:'Portfolio Contact Form',botcheck:!!$('#bc')&&$('#bc').checked})})
+ .then(r=>r.json()).then(r=>{if(r.success){st.textContent='Thank you! Your message was sent.';f.reset()}else st.textContent='Sorry, the message could not be sent. Please try again.'})
+ .catch(()=>{st.textContent='Network problem. Please check your internet and try again.'}).finally(()=>{btn.disabled=false})};
 const FB='Sorry, I can only answer questions about '+D.name+'’s information. Try asking about skills, education, projects, certificates or contact.';
 const KB=[[['skill','tech','language','tool'],()=>D.tech.join(', ')+'.'],
 [['educat','study','universit','school','college'],()=>D.education.map(e=>e[0]+' – '+e[1]+' ('+e[2]+')').join('; ')+'.'],

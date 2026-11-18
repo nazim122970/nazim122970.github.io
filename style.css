@@ -185,3 +185,4 @@ body[data-d="1"] nav{left:3vw;right:3vw;top:8px;border-radius:99px;border:1px so
 .nt{padding:2px 12px;border:1px solid var(--a);border-radius:99px;font-size:.78rem}
 .nn{display:inline-block;margin-left:10px;padding:2px 8px;border-radius:6px;background:var(--a2);color:#111;font-size:.7rem;vertical-align:middle;animation:nwp 1.6s ease-in-out infinite}
 @keyframes nwp{50%{transform:scale(1.15)}}
+.hp{display:none}

@@ -15,6 +15,7 @@ const DATA={
   telegram:'@nazim05',
   linkedin:'https://www.linkedin.com/in/nazim11/',
   facebook:'https://www.facebook.com/share/1ACHiY1QBe/',
+  formKey:'04a31d33-e83b-499e-b9ae-9a30bd4d4311',
   resume:'Resume/Nazim.pdf',
 
   skills:[['C#',80],['Java',75],['JavaScript',50],['Python',30],['HTML',90],['CSS',80],['SQL',80],['OOP',75],['n8n',30],['Git',70]],
